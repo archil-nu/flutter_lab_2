@@ -45,12 +45,32 @@ class _BankAccountsPanelStateful extends State<BankAccountsPanel> {
       border: TableBorder.all(borderRadius: BorderRadius.circular(5.0)),
     );
 
+    var actionButtons = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton.icon(
+          icon: Icon(Icons.list),
+          onPressed: () {},
+          label: Text('View details'),
+        ),
+        SizedBox(width: 10.0),
+        ElevatedButton.icon(
+          icon: Icon(Icons.delete),
+          onPressed: () {},
+          label: Text('Delete'),
+        ),
+      ],
+    );
+
+    var spacer = SizedBox(height: 10.0);
+
     return Expanded(
       child: Scaffold(
         appBar: AppBar(
           title: Text('List of accounts'),
         ),
-        body: Center(child: Column(children: [dataTable])),
+        body:
+            Center(child: Column(children: [dataTable, spacer, actionButtons])),
       ),
     );
   }
