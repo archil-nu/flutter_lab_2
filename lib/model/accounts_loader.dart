@@ -4,12 +4,11 @@ class AccountsLoader {
   static AccountDirectory loadAccounts() {
     AccountDirectory accountDirectory = AccountDirectory();
     accountDirectory.newAccount(
-        '001002003', 'Bank Of America', '02022345', 1000);
-    accountDirectory.newAccount('1012233003', 'Chase', '11223311', 2000);
-    accountDirectory.newAccount(
-        '001002003', 'Cambridge Savings Bank', '02022345', 100000);
-    accountDirectory.newAccount('001002003', 'CitiBank', '02022345', 1000);
-    accountDirectory.newAccount('001002003', 'Santander', '02022345', 1000);
+        '123456789', 'Bank Of America', '021000322', 10000);
+    accountDirectory.newAccount('987654321', 'Wells Fargo', '121000248', 8500);
+    accountDirectory.newAccount('123789456', 'Chase Bank', '021000021', 15000);
+    accountDirectory.newAccount('987321654', 'Citibank', '021000089', 12500);
+    accountDirectory.newAccount('456123789', 'Santander', '091000022', 7200);
 
     return accountDirectory;
   }
