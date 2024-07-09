@@ -17,5 +17,12 @@ class AccountDirectory {
     }
   }
 
+  Account? getAccount(int index) {
+    if ((index > 0) && (index < accounts.length)) {
+      return _accounts.elementAt(index);
+    }
+    return null;
+  }
+
   List<Account> get accounts => _accounts.toList(growable: false);
 }

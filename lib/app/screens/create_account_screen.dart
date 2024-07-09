@@ -29,8 +29,8 @@ class _CreateAccountScreenStateful extends State<CreateAccountScreen> {
       await showDialog(
           context: context,
           builder: (BuildContext context) => AlertWidget(
-                title: 'Product Created',
-                content: 'Product created successfully!',
+                title: 'New Account',
+                content: 'Account created successfully!',
                 closeParent: true,
               ));
     }

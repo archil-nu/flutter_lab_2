@@ -11,7 +11,10 @@ class Account {
         _routingNumber = routingNumber,
         _balance = balance;
 
+  set accountNumber(String accountNumber) => _accountNumber = accountNumber;
   set bankName(String bankName) => _bankName = bankName;
+  set routingNumber(String routingNumber) => _routingNumber = routingNumber;
+  set balance(int balance) => _balance = balance;
 
   String get accountNumber => _accountNumber;
   String get bankName => _bankName;

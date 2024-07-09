@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab_2/app/screens/update_account_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_lab_2/app/main_app.dart';
@@ -18,7 +19,13 @@ class _BankAccountsScreenStateful extends State<BankAccountsScreen> {
   Widget build(BuildContext context) {
     final appState = context.watch<MainAppState>();
 
-    void handleViewDetails() {}
+    void handleViewDetails() {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (BuildContext context) =>
+                  UpdateAccountScreen(selectedRow)));
+    }
 
     void handleDelete() {
       appState.deleteAccount(selectedRow);
@@ -48,29 +55,35 @@ class _BankAccountsScreenStateful extends State<BankAccountsScreen> {
                 setState(() => selectedRow = (selected ?? false) ? index : -1)),
         growable: true);
 
-    var dataTable = DataTable(
-      columns: columns,
-      rows: rows,
-      showCheckboxColumn: false,
-      border: TableBorder.all(borderRadius: BorderRadius.circular(5.0)),
-    );
+    var dataTable = ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: double.infinity),
+        child: Padding(
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 20.0),
+            child: DataTable(
+              columns: columns,
+              rows: rows,
+              showCheckboxColumn: false,
+              border: TableBorder.all(borderRadius: BorderRadius.circular(5.0)),
+            )));
 
-    var actionButtons = Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ElevatedButton.icon(
-          icon: Icon(Icons.list),
-          onPressed: (selectedRow == -1) ? null : handleViewDetails,
-          label: Text('View details'),
-        ),
-        SizedBox(width: 10.0),
-        ElevatedButton.icon(
-          icon: Icon(Icons.delete),
-          onPressed: (selectedRow == -1) ? null : handleDelete,
-          label: Text('Delete'),
-        ),
-      ],
-    );
+    var actionButtons = Padding(
+        padding: EdgeInsetsDirectional.symmetric(horizontal: 20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            ElevatedButton.icon(
+              icon: Icon(Icons.list),
+              onPressed: (selectedRow == -1) ? null : handleViewDetails,
+              label: Text('View details'),
+            ),
+            SizedBox(width: 10.0),
+            ElevatedButton.icon(
+              icon: Icon(Icons.delete),
+              onPressed: (selectedRow == -1) ? null : handleDelete,
+              label: Text('Delete'),
+            ),
+          ],
+        ));
 
     var spacer = SizedBox(height: 10.0);
 
