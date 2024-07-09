@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lab_2/app/screens/update_account_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
+
+import 'package:flutter_lab_2/model/account.dart';
 
 import 'package:flutter_lab_2/app/main_app.dart';
 import 'package:flutter_lab_2/app/components/app_bar_styled.dart';
-
-import 'package:flutter_lab_2/model/account.dart';
+import 'package:flutter_lab_2/app/screens/update_account_screen.dart';
 
 class BankAccountsScreen extends StatefulWidget {
   @override
@@ -18,6 +19,9 @@ class _BankAccountsScreenStateful extends State<BankAccountsScreen> {
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<MainAppState>();
+
+    final NumberFormat currencyFormat =
+        NumberFormat.currency(locale: 'en_US', symbol: '\$');
 
     void handleViewDetails() {
       Navigator.push(
@@ -49,7 +53,10 @@ class _BankAccountsScreenStateful extends State<BankAccountsScreen> {
               DataCell(Text(accounts.elementAt(index).accountNumber)),
               DataCell(Text(accounts.elementAt(index).bankName)),
               DataCell(Text(accounts.elementAt(index).routingNumber)),
-              DataCell(Text(accounts.elementAt(index).balance.toString())),
+              DataCell(Container(
+                  alignment: Alignment.centerRight,
+                  child: Text(currencyFormat
+                      .format(accounts.elementAt(index).balance)))),
             ],
             onSelectChanged: (selected) =>
                 setState(() => selectedRow = (selected ?? false) ? index : -1)),

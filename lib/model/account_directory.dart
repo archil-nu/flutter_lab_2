@@ -12,13 +12,13 @@ class AccountDirectory {
   }
 
   void deleteAccount(int index) {
-    if ((index > 0) && (index < accounts.length)) {
+    if ((index >= 0) && (index < accounts.length)) {
       _accounts.removeAt(index);
     }
   }
 
   Account? getAccount(int index) {
-    if ((index > 0) && (index < accounts.length)) {
+    if ((index >= 0) && (index < accounts.length)) {
       return _accounts.elementAt(index);
     }
     return null;
