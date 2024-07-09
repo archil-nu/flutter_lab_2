@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NotImplementedPanel extends StatelessWidget {
+class NotImplementedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

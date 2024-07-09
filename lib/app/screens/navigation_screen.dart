@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lab_2/app/screens/bank_accounts_screen.dart';
-import 'package:flutter_lab_2/app/screens/create_account.dart';
-import 'package:flutter_lab_2/app/screens/not_implemented_panel.dart';
+import 'package:flutter_lab_2/app/screens/create_account_screen.dart';
+import 'package:flutter_lab_2/app/screens/not_implemented_screen.dart';
 
 class NavigationScreen extends StatelessWidget {
   @override
@@ -34,7 +34,7 @@ class NavigationScreen extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => NotImplementedPanel()));
+                    builder: (BuildContext context) => NotImplementedScreen()));
         }
       },
       backgroundColor: colorScheme.surfaceContainerHigh,
