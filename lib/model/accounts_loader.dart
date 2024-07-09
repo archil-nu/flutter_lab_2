@@ -7,7 +7,7 @@ class AccountsLoader {
         '001002003', 'Bank Of America', '02022345', 1000);
     accountDirectory.newAccount('1012233003', 'Chase', '11223311', 2000);
     accountDirectory.newAccount(
-        '001002003', 'Cambridge Savings Bank', '02022345', 10000);
+        '001002003', 'Cambridge Savings Bank', '02022345', 100000);
     accountDirectory.newAccount('001002003', 'CitiBank', '02022345', 1000);
     accountDirectory.newAccount('001002003', 'Santander', '02022345', 1000);
 

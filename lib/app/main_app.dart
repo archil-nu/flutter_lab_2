@@ -25,8 +25,15 @@ class MainApp extends StatelessWidget {
 class MainAppState extends ChangeNotifier {
   AccountDirectory accountDirectory = AccountsLoader.loadAccounts();
 
-  void newAccount(String accountNumber) {
-    accountDirectory.newAccount(accountNumber, "", "", 0);
+  void newAccount(String accountNumber, String bankName, String routingNumber,
+      int balance) {
+    accountDirectory.newAccount(
+        accountNumber, bankName, routingNumber, balance);
+    notifyListeners();
+  }
+
+  void deleteAccount(int index) {
+    accountDirectory.deleteAccount(index);
     notifyListeners();
   }
 }

@@ -11,5 +11,11 @@ class AccountDirectory {
     return newAccount;
   }
 
+  void deleteAccount(int index) {
+    if ((index > 0) && (index < accounts.length)) {
+      _accounts.removeAt(index);
+    }
+  }
+
   List<Account> get accounts => _accounts.toList(growable: false);
 }
